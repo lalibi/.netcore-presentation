@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>.NET Core</title>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<!-- highlight.js demo - https://goo.gl/GOPyPK -->
+		<link rel="stylesheet" href="lib/css/arta.css">
+
+		<style>
+			.slides .footnote{
+				font-size: 60%;
+			}
+
+			/* I should probably make my own theme */
+			.reveal section img {
+				margin: 0;
+				background: initial;
+				border: 4px solid rgba(0,0,0,0);
+			}
+
+			.reveal pre code {
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section
+					data-markdown="dotnetcore.md"
+					data-separator="^---\r?\n$"
+					data-separator-vertical="^--\r?\n"
+					data-separator-notes="^Note:"
+					data-charset="utf-8">
+					<!--
+                        Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
+                        For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
+                    -->
+                </section>
+			</div>
+		</div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional libraries used to extend on reveal.js
+				dependencies: [
+					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+					// Interpret Markdown in <section> elements
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+					// Syntax highlight for <code> elements
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+							hljs.initHighlightingOnLoad();
+
+							hljs.registerLanguage("razor", function (b) {
+								var a = "foreach|0 var|0 if|0 in|0 else|0 model|0 using|0 false|0true|0 null|0 int|0 for|0 double|0 decimal|0 float|0 string|0 new|0";
+								return { k: a, c: [{ cN: "built_in", b: "Html|Scripts|RenderBody|RenderSection|Styles" }, { cN: "comment", b: "@[*]", e: "[*]@" }, { cN: "start", b: /[@][?\\w]*/, i: /[@][{*]/ }, { cN: "string", b: '"((?!@))', e: '"', i: "\\n" }, { b: "<", e: ">", i: "</?", sL: "xml", c: [{ b: '"@', e: '"', sL: "razor" }] }] }
+							});
+						}
+					},
+
+					// Zoom in and out with Alt+click
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+
+					// Speaker notes
+					{ src: 'plugin/notes/notes.js', async: true },
+
+					// Remote control your reveal.js presentation using a touch device
+				//	{ src: 'plugin/remotes/remotes.js', async: true },
+
+					// MathJax
+				//	{ src: 'plugin/math/math.js', async: true }
+				]
+            });
+		</script>
+	</body>
+</html>
